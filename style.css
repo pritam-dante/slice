@@ -25,13 +25,15 @@ body {
 
 .header {
   background: white;
-  padding: 30px 20px 20px;
+  padding: 16px;
 }
 
 .subtitle {
   font-size: 24px;
   color: rgba(0, 0, 0, 0.9);
   font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 2%;
 }
 
 .content {
@@ -84,59 +86,115 @@ body {
   padding-bottom: 16px;
 }
 
-/* Fee Table Styling */
+/* Fee Table Styling for both HTML tables and div-based tables */
 .fee-table {
-  width: 100%;
-  margin-bottom: 40px;
+    width: 100%;
+    /* margin-bottom: 40px; */
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
-.fee-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 10px;
-  color: rgba(0, 0, 0, 0.4);
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 12px;
-  letter-spacing: 4%;
-  padding: 8px 0;
+/* For HTML tables */
+.fee-table th,
+.fee-table td {
+    border: none;
+    vertical-align: top;
+    width: 50%;
 }
 
-.fee-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 24px 0;
-  border-bottom: 1px solid #f3f4f6;
+.fee-header th {
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 12px;
+    letter-spacing: 4%;
+    padding: 8px 0;
+    text-align: left;
+    /* border-bottom: 1px solid #f3f4f6; */
+
 }
 
-.fee-row:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+.fee-header th:last-child {
+    text-align: right;
+}
+.fee-header.fee-header3 th:last-child {
+  text-align: left;
+}
+
+.fee-row td {
+    padding: 16px 0;
+}
+
+.fee-row:last-child td {
+    padding-bottom: 24px;
+}
+
+/* For div-based tables */
+.fee-table .fee-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 12px;
+    letter-spacing: 4%;
+}
+.fee-header{
+  border-bottom: 1px dotted #e6e8ed;
+}
+
+.fee-table .fee-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 24px 0;
+    border-bottom: 1px dotted #e6e8ed;
+}
+
+.fee-table .fee-row:last-child {
+    /* border-bottom: none; */
+    padding-bottom: 0px;
+    margin-bottom: 24px;
+}
+
+.fee-table .fee-row > .fee-type {
+    width: 50%;
+    padding-right: 20px;
+}
+
+.fee-table .fee-row > .fee-amount2 {
+    width: 50%;
+    text-align: right;
+}
+.fee-table .fee-row > .fee-amount3 {
+  width: 50%;
+  text-align: left;
 }
 
 .fee-type {
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.7);
-  font-weight: 400;
-  line-height: 16px;
-  padding: 16px 0;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+}
+
+
+.fee-amount, .fee-amount2 {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 .fee-type2{
   font-weight: 500;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 16px;
   color: rgba(0, 0, 0, 0.9);
   letter-spacing: 2%;
-}
-
-.fee-amount,
-.fee-amount2 {
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
 }
 
 .fee-amount2 .highlight {
@@ -153,7 +211,54 @@ body {
   color: rgba(0, 0, 0, 0.9);
   letter-spacing: 2%;
 }
-
+.middleText{
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  color: (0, 0, 0, 0.9);
+}
+.middleTextDesc{
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.middleTextDesc2{
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.level{
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.level1{
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.level2{
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.9);
+}
+.level3{
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.9);
+}
+.level4{
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.4);
+}
 .fee-note {
   font-size: 8px;
   color: rgba(0, 0, 0, 0.4);
@@ -161,6 +266,11 @@ body {
   line-height: 16px;
   text-align: right;
   letter-spacing: 2%;
+}
+.fee-note2{
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: left;
 }
 .note {
   font-weight: 400;
@@ -170,6 +280,13 @@ body {
   letter-spacing: 2%;
   color: rgba(0, 0, 0, 0.7);
   padding-bottom: 24px;
+  padding-top: 16px;
+}
+.note-text{
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(119, 123, 145, 1);
+  line-height: 20px;
 }
 .subsection-context-type {
   font-weight: 500;
@@ -196,6 +313,7 @@ body {
   color: rgba(158, 43, 207, 1);
   text-transform: uppercase;
   letter-spacing: 4%;
+  margin-bottom: 2px;
 }
 .example-type-heading {
   font-weight: 500;
@@ -213,6 +331,156 @@ body {
   line-height: 20px;
   padding-bottom: 16px;
   color: rgba(158, 43, 207, 1);
+}
+
+/* Three column table layout for finance charges calculation */
+.fee-table th:first-child,
+.fee-table td:first-child {
+    width: 40%;
+}
+
+/* .fee-table th:nth-child(2),
+.fee-table td:nth-child(2) {
+    width: 30%;
+} */
+
+.fee-table th:nth-child(3),
+.fee-table td:nth-child(3) {
+    width: 20%;
+}
+
+/* Styling for three-column tables */
+.fee-table tbody tr td:nth-child(2),
+.fee-table tbody tr td:nth-child(3) {
+    text-align: right;
+}
+
+.fee-table tbody tr td:first-child {
+    text-align: left;
+}
+
+
+
+/* Three column table - Figma exact match */
+.three-column-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    margin-bottom: 24px;
+}
+
+.three-column-table th,
+.three-column-table td {
+    border: none;
+    vertical-align: top;
+    padding: 0;
+}
+
+.three-column-table .fee-header2 th {
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 12px;
+    letter-spacing: 0.4px;
+    padding: 0 0 12px 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.three-column-table .fee-header2 th:first-child {
+    width: 33.33%;
+    text-align: left;
+}
+
+.three-column-table .fee-header2 th:nth-child(2),
+.three-column-table .fee-header2 th:nth-child(3) {
+    width: 33.33%;
+    text-align: center;
+    border-bottom: 1px dotted #e6e8ed;
+}
+
+.three-column-table .fee-row td {
+    padding: 20px 0 0 0;
+    border-bottom: none;
+}
+
+.three-column-table .fee-row td:first-child {
+    width: 33.33%;
+    text-align: left;
+    border-bottom: 1px dotted #e6e8ed;
+}
+
+.three-column-table .fee-row td:nth-child(2),
+.three-column-table .fee-row td:nth-child(3) {
+    width: 33.33%;
+    text-align: center;
+    border-bottom: 1px dotted #e6e8ed;
+}
+
+.three-column-table .fee-row:last-child td {
+    padding-bottom: 0;
+}
+
+.three-column-table .transaction-date {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.9);
+    line-height: 16px;
+}
+
+.three-column-table .transaction-desc {
+    font-size: 8px;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.three-column-table .amount-value {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 16px;
+}
+
+.three-column-table .amount-value2 {
+    font-size: 10px;
+    font-weight: 500;
+    color:rgba(0, 0, 0, 0.9);
+    line-height: 16px;
+}
+
+.three-column-table .amount-note {
+    font-size: 11px;
+    color: #9CA3AF;
+    font-weight: 400;
+    line-height: 16px;
+    margin-top: 2px;
+}
+
+.interest-calculation-header, .interest-calculation-data{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color:rgba(0, 0, 0, 0.7);
+  padding-bottom: 16px;
+}
+.interest-calculation-details ul,ol {
+  padding-left: 20px;
+  /* list-style-position: inside; */
+}
+.interest-calculation-details li{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color:rgba(0, 0, 0, 0.7);
+  padding-bottom: 16px;
+}
+.interest-calculation-span{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 /* Android WebView optimizations */
@@ -274,3 +542,71 @@ body {
 html {
   -webkit-overflow-scrolling: touch;
 }
+
+/* UPI Enable Flow */
+.upi-enable-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  padding: 32px 16px 0 16px;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 28px;
+  user-select: none;
+}
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+.custom-checkbox .checkmark {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: #f3e6fa;
+  border: 2px solid #a259e6;
+  margin-right: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-checkbox input[type="checkbox"]:checked + .checkmark::after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background: #a259e6;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+}
+.checkbox-label {
+  font-size: 15px;
+  color: #777b91;
+}
+.primary-action-btn {
+  
+  background: rgba(158, 43, 207, 1);
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  border-radius: 64px;
+  padding:12px 24px;
+  margin: 16px 0 24px 0;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(162,89,230,0.08);
+  transition: background 0.2s;
+}
+
+
