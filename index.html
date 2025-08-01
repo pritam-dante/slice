@@ -8,8 +8,609 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
     <title>MITC</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  padding: 10px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 450px;
+  margin: 0 auto;
+  background: white;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.scroll-header {
+  background: white;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.3s ease;
+}
+
+.scroll-header.shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  background: white;
+  padding: 0;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.48px;
+}
+
+.content {
+  padding: 24px 20px;
+  position: relative;
+}
+
+.hero-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.9);
+  padding-bottom: 16px;
+  letter-spacing: 0.32px;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 400;
+  line-height: 24px;
+  padding-bottom: 24px;
+  letter-spacing: 0.32px;
+}
+
+.charges-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.36px;
+  color: rgba(0, 0, 0, 0.9);
+  padding-bottom: 24px;
+}
+
+.charges-description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  color: rgba(0, 0, 0, 0.7);
+  padding-bottom: 16px;
+}
+
+.section-header {
+  color: rgba(158, 43, 207, 1);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.32px;
+  line-height: 24px;
+  padding-bottom: 16px;
+}
+
+.fee-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.fee-table th,
+.fee-table td {
+  border: none;
+  vertical-align: top;
+  width: 50%;
+}
+
+.fee-header th {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 12px;
+  letter-spacing: 0.4px;
+  padding: 8px 0;
+  text-align: left;
+}
+
+.fee-header th:last-child {
+  text-align: right;
+}
+
+.fee-header.fee-header3 th:last-child {
+  text-align: left;
+}
+
+.fee-header {
+  border-bottom: 1px dotted #e6e8ed;
+}
+
+.fee-row td {
+  padding: 16px 0;
+}
+
+.fee-row:last-child td {
+  padding-bottom: 24px;
+}
+
+.fee-table .fee-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 16px;
+  letter-spacing: 0.48px;
+}
+
+.fee-table .fee-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px dotted #e6e8ed;
+}
+
+.fee-table .fee-row:last-child {
+  padding-bottom: 0px;
+  margin-bottom: 24px;
+}
+
+.fee-table .fee-row > .fee-type {
+  width: 50%;
+  padding-right: 20px;
+}
+
+.fee-table .fee-row > .fee-amount2 {
+  width: 50%;
+  text-align: right;
+  gap: 6px;
+}
+
+.fee-table .fee-row > .fee-amount3 {
+  width: 50%;
+  text-align: left;
+}
+
+.fee-type {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+  text-align: left;
+}
+
+.fee-amount, .fee-amount2 {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.fee-type2 {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.24px;
+}
+
+.fee-amount2 .highlight {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.9);
+  line-height: 16px;
+  letter-spacing: 0.24px;
+}
+
+.highlight_2 {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.2px;
+}
+
+.middleText {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.24px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.middleTextDesc {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.middleTextDesc2 {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.level {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.level1 {
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.level2 {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.level3 {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.level4 {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.fee-note {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+  line-height: 12px;
+  text-align: right;
+  letter-spacing: 0.4px;
+}
+
+.fee-note2 {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: left;
+}
+
+.note {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  font-style: italic;
+  letter-spacing: 0.32px;
+  color: rgba(0, 0, 0, 0.7);
+  padding-bottom: 24px;
+  padding-top: 16px;
+}
+
+.note-text {
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(119, 123, 145, 1);
+  line-height: 20px;
+}
+
+.subsection-context-type {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.32px;
+  padding-bottom: 16px;
+}
+
+.subsection-content-description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.32px;
+  padding-bottom: 16px;
+}
+
+.example-type {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 28px;
+  color: rgba(158, 43, 207, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.48px;
+}
+
+.example-type-heading {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.32px;
+  padding-bottom: 16px;
+}
+
+.three-column-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-bottom: 24px;
+}
+
+.three-column-table th,
+.three-column-table td {
+  border: none;
+  vertical-align: top;
+}
+
+.three-column-table .fee-header2 th {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 16px;
+  letter-spacing: 0.48px;
+  padding: 0 0 16px 0;
+  border-bottom: 1px dotted #e6e8ed;
+}
+
+.three-column-table .fee-header2 th:first-child {
+  width: 33.33%;
+  text-align: left;
+}
+
+.three-column-table .fee-header2 th:nth-child(2),
+.three-column-table .fee-header2 th:nth-child(3) {
+  width: 33.33%;
+  text-align: center;
+  border-bottom: 1px dotted #e6e8ed;
+}
+
+.three-column-table .fee-row td {
+  padding: 20px 0 16px 0;
+  border-bottom: none;
+}
+
+.three-column-table .fee-row td:first-child {
+  width: 33.33%;
+  text-align: left;
+  border-bottom: 1px dotted #e6e8ed;
+}
+
+.three-column-table .fee-row td:nth-child(2),
+.three-column-table .fee-row td:nth-child(3) {
+  width: 33.33%;
+  text-align: center;
+  border-bottom: 1px dotted #e6e8ed;
+}
+
+.three-column-table .transaction-date {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.9);
+  line-height: 16px;
+  letter-spacing: 0.24px;
+}
+
+.three-column-table .transaction-desc {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+}
+
+.three-column-table .amount-value {
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 16px;
+}
+
+.three-column-table .amount-value2 {
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.9);
+  line-height: 16px;
+}
+
+.three-column-table .amount-note {
+  font-size: 11px;
+  color: #9CA3AF;
+  font-weight: 400;
+  line-height: 16px;
+  margin-top: 2px;
+}
+
+.interest-calculation-header, .interest-calculation-data {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.7);
+  padding-bottom: 16px;
+}
+
+.interest-calculation-details ul, ol {
+  padding-left: 20px;
+}
+
+.interest-calculation-details li {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.7);
+  padding-bottom: 16px;
+  letter-spacing: 0.48px;
+}
+
+.interest-calculation-span {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.upi-enable-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  padding: 32px 16px 0 16px;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 28px;
+  user-select: none;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox .checkmark {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: white;
+  border: 2px solid #a259e6;
+  margin-right: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  background: #a259e6;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark::after {
+  content: '✓';
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+}
+
+.checkbox-label {
+  font-size: 15px;
+  color: #777b91;
+}
+
+.primary-action-btn {
+  background: rgba(158, 43, 207, 1);
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  border-radius: 64px;
+  padding: 12px 24px;
+  margin: 16px 0 24px 0;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(162, 89, 230, 0.08);
+  transition: background 0.2s;
+  width: 100%;
+  max-width: 320px;
+}
+
+.primary-action-btn:hover {
+  background: rgba(158, 43, 207, 0.9);
+}
+
+.bottom-divider {
+  width: 100%;
+  height: 1px;
+  background: #e6e8ed;
+  margin-top: 24px;
+}
+
+.scroll-content::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 99;
+}
+
+.scroll-content.shadow-top::before {
+  opacity: 1;
+}
+
+.scroll-content::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 99;
+}
+
+.scroll-content.shadow-bottom::after {
+  opacity: 1;
+}
+        
+    </style>
 </head>
 
 <body>
@@ -2317,7 +2918,7 @@
                                                 <br><br>
                                                 You acknowledge that these MITC and the detailed cardholder agreement may be modified by the slice with appropriate notice as required by regulatory guidelines and continued use of the slice super card after such modifications constitutes acceptance of the revised terms.</div>
 
-                                                <div class="upi-enable-flow">
+                                                <!-- <div class="upi-enable-flow">
                                                     <label class="custom-checkbox">
                                                       <input type="checkbox" checked />
                                                       <span class="checkmark"></span>
@@ -2325,7 +2926,7 @@
                                                     </label>
                                                     <button class="primary-action-btn">Accept and continue</button>
                                                     <div class="bottom-divider"></div>
-                                                  </div>
+                                                  </div> -->
 
 
                                             <script>
